@@ -1,0 +1,2 @@
+difficulty=Hard
+player_name=Elena
