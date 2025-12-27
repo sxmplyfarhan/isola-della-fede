@@ -11,7 +11,7 @@ using namespace std;
 //  ma su windows si usa cls
 
 void clearScreen() {
-    #if defined(_win32) || defined(_WIN64)
+    #if defined(_WIN32) || defined(_WIN64)
         system("cls");
     #else
         system("clear");
@@ -106,7 +106,7 @@ void showCredits() {
 }
 
 void showSettings() {
-    do {
+    while(true) {
         clearScreen();
         printSettingsTitle();
 
@@ -154,18 +154,19 @@ void showSettings() {
         } else if (choice == 4) {
             break;
         } else {
-            do {
-            cout << "Scelta non valida. \n Premi invio per riprovare"; // sappaimo che possiamo fare in un altro modo pero per non sprecare tempo abbiamo usato cin.ignore e cin.get
-            cin >> choice;
-            } while (choice != 1 || choice != 2 || choice != 3 || choice != 4);
+            cout << "Scelta non valida. \n Premi invio per riprovare";
+            cin.ignore();
+            cin.get();
         }
 
-        } while (true); 
+        } 
 }
 
 int main() {
     loadSettings();
+    #if defined(_WIN32) || defined(_WIN64)
     SetConsoleOutputCP(CP_UTF8);
+    #endif
     while (true) {
         clearScreen();
         printTitle();
