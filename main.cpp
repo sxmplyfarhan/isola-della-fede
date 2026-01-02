@@ -5,6 +5,7 @@
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
 #endif
+#include <time.h>
 using namespace std;
 
 void clearScreen() {
@@ -18,7 +19,11 @@ void clearScreen() {
 string mobs1[3] = {"Scimmia", "Cane", "Goblin"};
 string mobs2[3] = {"Pipistrello", "Farfalla", "Ragno"};
 string mobs3[3] = {"Centauro", "Mietitore", "Fenice"};
+<<<<<<< HEAD
 string inventariospace[30];
+=======
+
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
 string playerName ="Giocatore";
 string difficulty = "Normale";
 string infront = "w"; 
@@ -29,11 +34,17 @@ string inventario = "e";
 string pieta = "r";
 string scappare = "l";
 string attaccare = "q";
-
 double vita = 5;
 int nemiciUccisi = 0;
 int livello = 1;
 
+<<<<<<< HEAD
+double vita = 5;
+int nemiciUccisi = 0;
+int livello = 1;
+
+=======
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
 void livelloEsperienza() {
     if (difficulty == "Normale" ) {
             if (nemiciUccisi >= 3) {
@@ -56,7 +67,11 @@ void livelloEsperienza() {
     }
 }
 
+<<<<<<< HEAD
 void combattimento(int livello, int &uccisioni, string mobs[3]){
+=======
+void combattimento(int livello, int &nemiciUccisi, string mobs[3]){
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
 
     string scelta;
     string mob = mobs[rand() % 3];
@@ -69,7 +84,11 @@ void combattimento(int livello, int &uccisioni, string mobs[3]){
         cin >> scelta;
         if (scelta == attaccare) {
             cout << "Hai attaccato : " << mob << " e lo hai sconfitto!" << endl;
+<<<<<<< HEAD
             uccisioni++;
+=======
+            nemiciUccisi++;
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
         } else if (scelta == pieta) {
             cout << "Sei stato misericordioso con : " << mob << " e lo hai lasciato andare.Tuttavia prendi del danno :(" << endl;
         } else if (scelta == scappare) {
@@ -78,7 +97,40 @@ void combattimento(int livello, int &uccisioni, string mobs[3]){
             cout << "Scelta non valida. " << mob << " ti ha attaccato mentre eri indeciso!" << endl;
         }
     }
+<<<<<<< HEAD
 }
+=======
+
+    /*
+    if  difficolte == normale
+    
+    */
+}
+
+
+/*
+livello 1 nemici:
+- Scimmie
+- Cani
+- goblin
+boss = Goblin king, chiave della trasformazioe
+
+livelli 2 nemici;
+Pipistrelli
+Scorpioni
+Ragni
+boss = Vampiro
+
+Livello 3 nemici ; 
+gorilla
+fantasma
+fenice
+
+boss = Drago
+*/
+
+string inventariospace[30];
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
 
 void loadSettings() {
     ifstream in("impostazioni.txt"); //legge
@@ -146,6 +198,10 @@ void loadInventory() {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
 void saveSettings() {
     ofstream out("impostazioni.txt"); //scrive
     out << "playerName = " << playerName << "\n";
@@ -189,6 +245,10 @@ void saveInventory() {
     out << "oggetto = " << inventariospace[23] << "\n";
     out << "oggetto = " << inventariospace[24] << "\n";
     out << "oggetto = " << inventariospace[25] << "\n";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
     out.close();
 }
 
@@ -418,8 +478,12 @@ void showSettings() {
         } else if (choice == 11) {
             saveSettings();
             saveInventory();
+<<<<<<< HEAD
             cout << "Impostazioni Salvate!\n";
             Invio();
+=======
+            cout << "Impostazioni Salvate!\n" <<"Premi invio per continuare.. ";
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
             cin.ignore();
             cin.get();
         } else if (choice == 12) {
@@ -456,13 +520,28 @@ void introduzioneGioco(){
     Invio();
     cin.get();
 
+<<<<<<< HEAD
+=======
+    cout << "\033[90m";
+    cout << "\nPremi invio per continuare...";
+    cout << "\033[0m";
+
+    cin.get();
+
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
     clearScreen();
     printIntroductionTitle();
     cout << "\033[97;1m";
     cout << "Informazioni sul gioco\n";
     cout << "\033[97;0m";
+<<<<<<< HEAD
     cout << "\nInizi con 5 cuori e puoi arrivare fino a 20.\n";
     cout << "I nemici fanno piu danno quando hai piu cuori.\n";
+=======
+
+    cout << "\nInizi con 5 cuori e puoi arrivare fino a 20.\n";
+    cout << "I nemici fanno piu' danno quando hai piu' cuori.\n";
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
     cout << "L'inventario non ha limiti di spazio.\n";
     cout << "Ci sono 4 livelli: 3 con mostri e boss, e l'ultimo con il boss finale.\n";
     cout << "I boss possono dropare amuleti e danno sempre una chiave.\n";
@@ -471,6 +550,7 @@ void introduzioneGioco(){
     cout << "\033[97;1m";
     cout << "\nDopo che premi INVIO. Iniziera il gioco reale...";
     cout << "\033[97;0m";
+<<<<<<< HEAD
     Invio();
     cin.get();
 
@@ -488,16 +568,63 @@ void introduzioneGioco(){
     cout << "Quando ti svegliasti eri su un'sola legato con i quatro ladri davanti a te, tu trovassi un buon momento in cui erano distratti e scappasti ma dopo un po svenni per la stanchewzza.\n";
     cout << "Per questo ti trovi qui.\n";
     Invio();
+=======
+
+    cout << "\033[90m";
+    cout << "\nPremi invio per continuare...";
+    cout << "\033[0m";
+
+    cin.get();
+
+    clearScreen();
+
+    ifstream file("ASCII/isola.txt");
+
+    char c;
+    while (file.get(c)) {
+        cout << c;
+    }
+
+    file.close();
+    cout << "\nCiao, so che sei un po stordito poiche non ricordi nulla e non sai perche su un'isola in mezzo al nulla ora ti raccontero tutto.\n";
+    cout << "Tutto era iniziato nella tua camera mentre stavi guardando l'ultimo episodio di Twisted Metal/The Witcher mentre intorno a te cera un silenzio tombale.\n";
+    cout << "All'improvviso sentissi un tonfo proveniente dalla finestra e cercassi di capire l'origine.\n";
+    cout << "\033[90m";
+    cout << "\nPremi invio per continuare...";
+    cout << "\033[0m";
+    cin.get();
+    clearScreen();
+
+    file.open("ASCII/isola.txt");
+
+    char b;
+    while (file.get(b)) {
+        cout << b;
+    }
+    cout << "\nAll'improvviso si ruppe la finestra e dopo quatro rapitori entrarono all'interno molto velocemente, tu provassi a reagire ma eri in svantaggio numerico quindi ti rapirono.\n";
+    cout << "Quando ti svegliasti eri su un'sola legato con i quatro ladri davanti a te, tu trovassi un buon momento in cui erano distratti e scappasti ma dopo un po svenni per la stanchewzza.\n";
+    cout << "Per questo ti trovi qui.";
+
+    cout << "\033[90m";
+    cout << "\nPremi invio per continuare...";
+    cout << "\033[0m";
+
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
     cin.get();
     break;
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
 int main() {
     loadSettings();
     #if defined(_WIN32) || defined(_WIN64)
     SetConsoleOutputCP(CP_UTF8);
     #endif
+    srand(time(NULL));
     while (true) {
         clearScreen();
         printTitle();
@@ -511,6 +638,12 @@ int main() {
         cin >> choice;
         if (choice == 1) {
             introduzioneGioco();
+<<<<<<< HEAD
+=======
+            combattimento(1, uccisioni1, mobs1);
+            combattimento(2, uccisioni2, mobs2);
+            combattimento(3, uccisioni3, mobs3);
+>>>>>>> 75fc54e26139bb65676293c738846c2800453a6b
         } else if (choice == 2) {
             showCredits();
         } else if (choice == 3) {
