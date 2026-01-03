@@ -574,16 +574,20 @@ void introduzioneGioco(){
     clearScreen();
     displayIsola();
     linea();
-    cout << "Ciao, so che sei un po stordito poiche non ricordi nulla e non sai perche su un'isola in mezzo al nulla ora ti raccontero tutto.\n";
-    cout << "Tutto era iniziato nella tua camera mentre stavi guardando l'ultimo episodio di Twisted Metal/The Witcher mentre intorno a te cera un silenzio tombale.\n";
-    cout << "All'improvviso sentissi un tonfo proveniente dalla finestra e cercassi di capire l'origine.\n";
+    cout << "Ciao, so che sei un po' stordito, sono successe un paio di cose che ti hanno portato su quest'isola. Ora ti racconto tutto.\n";
+
+        /* aggiungere ascii art camera */
+        
+    cout << "Tutto era iniziato nella tua camera mentre stavi guardando l'ultimo episodio di Twisted Metal/The Witcher (oppure mentre stavi leggendo "Niente di nuovo sul fronte occidentale"), intorno a te c'era un silenzio tombale.\n";
+    cout << "All’improvviso un tonfo proveniente dalla finestra attirò la tua attenzione e provasti a capire da dove provenisse.\n";
+    cout << "\nPochi secondi dopo la finestra si frantumò e quattro figure irruppero in camera tua, nel tentaivo di scappare facesti un rumore e una delle figure ti stordì.\n";
+    
     Invio();
     cin.get();
 
     clearScreen();
     displayIsola();
-    cout << "\nAll'improvviso si ruppe la finestra e dopo quatro rapitori entrarono all'interno molto velocemente, tu provassi a reagire ma eri in svantaggio numerico quindi ti rapirono.\n";
-    cout << "Quando ti svegliasti eri su un'sola legato con i quatro ladri davanti a te, tu trovassi un buon momento in cui erano distratti e scappasti ma dopo un po svenni per la stanchewzza.\n";
+    cout << "Quando ti svegliasti eri sull'isola legato con i quattro ladri che stavano discutendo, in qualche modo riuscisti a slegarti e ti allontanasti da loro.\n";
     cout << "Per questo ti trovi qui.\n";
     Invio();
     cin.get();
