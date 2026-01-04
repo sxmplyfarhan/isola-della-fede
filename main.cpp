@@ -157,9 +157,6 @@ void combattimento(int livello, int &nemiciUccisi, string mobs[3]) {
 
 
 void combattimentoGoblinKing(){
-    
-    clearScreen();
-    displayGoblinKing();
 
 }
 
@@ -374,7 +371,7 @@ void linea(){
     cout << "\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n";
     cout << "\033[0m";
 }
-
+ 
 void displayAsciiArt(const string& filename) {
     ifstream file(filename);
     char c;
@@ -383,6 +380,9 @@ void displayAsciiArt(const string& filename) {
     }
 }
 
+void displayBedroom() {
+    displayAsciiArt("ASCII/bedroom.txt");
+}
 void displayBoss() {
     displayAsciiArt("ASCII/boss.txt");
 }
@@ -576,9 +576,11 @@ void introduzioneGioco(){
     linea();
     cout << "Ciao, so che sei un po' stordito, sono successe un paio di cose che ti hanno portato su quest'isola. Ora ti racconto tutto.\n";
 
-        /* aggiungere ascii art camera */
+    clearScreen();
+    displayBedroom();
+    linea();
         
-    cout << "Tutto era iniziato nella tua camera mentre stavi guardando l'ultimo episodio di Twisted Metal/The Witcher (oppure mentre stavi leggendo "Niente di nuovo sul fronte occidentale"), intorno a te c'era un silenzio tombale.\n";
+    cout << "Tutto era iniziato nella tua camera mentre stavi guardando l'ultimo episodio di Twisted Metal/The Witcher (oppure mentre stavi leggendo 'Niente di nuovo sul fronte occidentale'), intorno a te c'era un silenzio tombale.\n";
     cout << "All’improvviso un tonfo proveniente dalla finestra attirò la tua attenzione e provasti a capire da dove provenisse.\n";
     cout << "\nPochi secondi dopo la finestra si frantumò e quattro figure irruppero in camera tua, nel tentaivo di scappare facesti un rumore e una delle figure ti stordì.\n";
     
@@ -608,6 +610,7 @@ int main() {
         cout << "2. Crediti " << endl;
         cout << "3. impostazioni" << endl;
         cout << "4. Esci" << endl; 
+        displayIsola();
         Input();
 
         int choice;
