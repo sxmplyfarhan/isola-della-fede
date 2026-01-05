@@ -1,6 +1,7 @@
 # l'isola-della-fede
 Cose? Un gioco interactive fiction. 
 Basato su un ragazzo rapito e messo su una isola a sopravvivere.
+---
 
 ### Storia :
 Sei nella tua camera, con lo sguardo fisso sullo schermo mentre guardi l’ultimo episodio di Twisted Metal/The Witcher. La stanza è illuminata dalla luce della TV e intorno c’è silenzio. All’improvviso senti un forte botto provenire fuori dalla finestra. Ti fermi un istante, pensando che possa essere un tuono o un rumore lontano, cerchi di capirne l’origine.
