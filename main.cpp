@@ -7,14 +7,7 @@
 #endif
 #include <time.h>
 using namespace std;
-
-void clearScreen() {
-    #if defined(_WIN32) || defined(_WIN64)
-        system("cls");
-    #else
-        system("clear");
-    #endif
-}
+// Variabili
 string mob;
 string mobs1[3] = {"Scimmia", "Cane", "Rana"};
 string mobs2[3] = {"Pipistrello", "Farfalla", "Ragno"};
@@ -33,9 +26,16 @@ double vita = 5.0;
 double vitaMax = 5.0;
 int nemiciUccisi = 0;
 int esperienza = 1;
-bool hasTotem = true;
+bool hasTotem = false;
 bool hasShield = false;
-
+// Funzioni per tutto il codice
+void clearScreen() {
+    #if defined(_WIN32) || defined(_WIN64)
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
 void Input(){
     cout << "\033[35m";
     cout << "\n>> ";
@@ -50,9 +50,10 @@ void Invio(){
 }
 void linea(){
     cout << "\033[35m";
-    cout << "\n───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n";
+    cout << "\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n";
     cout << "\033[0m";
 }
+//funzioni ascii per il gioco
 void displayAsciiArt(const string& filename) {
     ifstream file(filename);
     char c;
@@ -126,8 +127,6 @@ void displayTrail() {
 void displayForest() {
     displayAsciiArt("ASCII/forest.txt");
 }
-
-
 void displayMob(const string& mob) {
     if (mob == "Boss") {
         displayBoss();
@@ -159,7 +158,78 @@ void displayMob(const string& mob) {
         displayVampireBoss();
     } 
 }
-
+// Funzione per tutti i titoli
+void printTitle() {
+    cout << "\033[35m";
+    cout << "┌──────────────────────────────────────────────────────────────────────────────────────────┐\n";
+    cout << "│                                                                                          │\n";
+    cout << "│  █████        ██    █████                  ████                                          │\n";
+    cout << "│ ░░███        ███   ░░███                  ░░███                                          │\n";
+    cout << "│  ░███       ░░░     ░███   █████   ██████  ░███   ██████                                 │\n";
+    cout << "│  ░███               ░███  ███░░   ███░░███ ░███  ░░░░░███                                │\n";
+    cout << "│  ░███               ░███ ░░█████ ░███ ░███ ░███   ███████                                │\n";
+    cout << "│  ░███      █        ░███  ░░░░███░███ ░███ ░███  ███░░███                                │\n";
+    cout << "│  ███████████        █████ ██████ ░░██████  █████░░████████                               │\n";
+    cout << "│ ░░░░░░░░░░░        ░░░░░ ░░░░░░   ░░░░░░  ░░░░░  ░░░░░░░░                                │\n";
+    cout << "│                                                                                          │\n";
+    cout << "│      █████          ████  ████                  ██████               █████               │\n";
+    cout << "│     ░░███          ░░███ ░░███                 ███░░███             ░░███                │\n";
+    cout << "│   ███████   ██████  ░███  ░███   ██████       ░███ ░░░   ██████   ███████   ██████       │\n";
+    cout << "│  ███░░███  ███░░███ ░███  ░███  ░░░░░███     ███████    ███░░███ ███░░███  ███░░███      │\n";
+    cout << "│ ░███ ░███ ░███████  ░███  ░███   ███████    ░░░███░    ░███████ ░███ ░███ ░███████       │\n";
+    cout << "│ ░███ ░███ ░███░░░   ░███  ░███  ███░░███      ░███     ░███░░░  ░███ ░███ ░███░░░        │\n";
+    cout << "│ ░░████████░░██████  █████ █████░░████████     █████    ░░██████ ░░████████░░██████       │\n";
+    cout << "│  ░░░░░░░░  ░░░░░░  ░░░░░ ░░░░░  ░░░░░░░░     ░░░░░      ░░░░░░   ░░░░░░░░  ░░░░░░        │\n";
+    cout << "│                                                                                          │\n";
+    cout << "└──────────────────────────────────────────────────────────────────────────────────────────┘\n";
+    cout << "\033[0m\n";
+}
+void printSettingsTitle() {
+    cout << "\033[35m";
+    cout << "┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n";
+    cout << "│ █████                                             █████                          ███                       ███ │\n";
+    cout << "│░░███                                             ░░███                          ░░░                       ░░░  │\n";
+    cout << "│ ░███  █████████████   ████████   ██████   █████  ███████    ██████    █████████ ████   ██████  ████████   ████ │\n";
+    cout << "│ ░███ ░░███░░███░░███ ░░███░░███ ███░░███ ███░░  ░░░███░    ░░░░░███  ░█░░░░███ ░░███  ███░░███░░███░░███ ░░███ │\n";
+    cout << "│ ░███  ░███ ░███ ░███  ░███ ░███░███ ░███░░█████   ░███      ███████  ░   ███░   ░███ ░███ ░███ ░███ ░███  ░███ │\n";
+    cout << "│ ░███  ░███ ░███ ░███  ░███ ░███░███ ░███ ░░░░███  ░███ ███ ███░░███    ███░   █ ░███ ░███ ░███ ░███ ░███  ░███ │\n";
+    cout << "│ █████ █████░███ █████ ░███████ ░░██████  ██████   ░░█████ ░░████████  █████████ █████░░██████  ████ █████ █████│\n";
+    cout << "│░░░░░ ░░░░░ ░░░ ░░░░░  ░███░░░   ░░░░░░  ░░░░░░     ░░░░░   ░░░░░░░░  ░░░░░░░░░ ░░░░░  ░░░░░░  ░░░░ ░░░░░ ░░░░░ │\n";
+    cout << "│                       ░███                                                                                     │\n";
+    cout << "│                       █████                                                                                    │\n";
+    cout << "│                      ░░░░░                                                                                     │\n";
+    cout << "└────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n";
+    cout << "\033[0m\n";
+}
+void printCreditsTitle() {
+    cout << "\033[35m";
+    cout << "┌────────────────────────────────────────────────────────────┐\n";
+    cout << "│                                 █████  ███   █████     ███ │\n";
+    cout << "│                                ░░███  ░░░   ░░███     ░░░  │\n";
+    cout << "│  ██████  ████████   ██████   ███████  ████  ███████   ████ │\n";
+    cout << "│ ███░░███░░███░░███ ███░░███ ███░░███ ░░███ ░░░███░   ░░███ │\n";
+    cout << "│░███ ░░░  ░███ ░░░ ░███████ ░███ ░███  ░███   ░███     ░███ │\n";
+    cout << "│░███  ███ ░███     ░███░░░  ░███ ░███  ░███   ░███ ███ ░███ │\n";
+    cout << "│░░██████  █████    ░░██████ ░░████████ █████  ░░█████  █████│\n";
+    cout << "│ ░░░░░░  ░░░░░      ░░░░░░   ░░░░░░░░ ░░░░░    ░░░░░  ░░░░░ │\n";
+    cout << "└────────────────────────────────────────────────────────────┘\n";
+    cout << "\033[0m\n";
+}
+void printIntroductionTitle(){
+    cout << "\033[35m";
+    cout << "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n";
+    cout << "│  ███              █████                           █████                        ███                              │\n";
+    cout << "│ ░░░              ░░███                           ░░███                        ░░░                               │\n";
+    cout << "│ ████  ████████   ███████   ████████   ██████   ███████  █████ ████  █████████ ████   ██████  ████████    ██████ │\n";
+    cout << "│░░███ ░░███░░███ ░░░███░   ░░███░░███ ███░░███ ███░░███ ░░███ ░███  ░█░░░░███ ░░███  ███░░███░░███░░███  ███░░███│\n";
+    cout << "│ ░███  ░███ ░███   ░███     ░███ ░░░ ░███ ░███░███ ░███  ░███ ░███  ░   ███░   ░███ ░███ ░███ ░███ ░███ ░███████ │\n";
+    cout << "│ ░███  ░███ ░███   ░███ ███ ░███     ░███ ░███░███ ░███  ░███ ░███    ███░   █ ░███ ░███ ░███ ░███ ░███ ░███░░░  │\n";
+    cout << "│ █████ ████ █████  ░░█████  █████    ░░██████ ░░████████ ░░████████  █████████ █████░░██████  ████ █████░░██████ │\n";
+    cout << "│░░░░░ ░░░░ ░░░░░    ░░░░░  ░░░░░      ░░░░░░   ░░░░░░░░   ░░░░░░░░  ░░░░░░░░░ ░░░░░  ░░░░░░  ░░░░ ░░░░░  ░░░░░░  │\n";
+    cout << "└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n";
+    cout << "\033[0m\n";
+}
+//funzioni esperienza e vita
 void livelloEsperienza() {
     if (difficulty == "Normale" ) {
             if (nemiciUccisi >= 3) {
@@ -184,69 +254,136 @@ void livelloEsperienza() {
             }
     }
 }
-
 void menuVita(){
-    cout << "\033[35m";
+    cout << "\033[31m";
     cout << "┌───────────┐";
     cout << "\033[0m\n";
-    cout << "\033[35m";
+    cout << "\033[31m";
     cout << "| ";
     cout << "\033[0m";
     cout << "Vita = " << vita;
-    cout << "\033[35m";
+    cout << "\033[31m";
     cout << "  | ";
     cout << "\033[0m\n"; 
-    cout << "\033[35m";
+    cout << "\033[31m";
     cout << "└───────────┘";
     cout << "\033[0m\n";
 }
-
+void menuVitaPiuScudo(){
+    cout << "\033[31m";
+    cout << "┌───────────┐";
+    cout << "\033[0m";
+    cout << "\033[90m";
+    cout << " ┌──────────────┐";
+    cout << "\033[0m";
+    cout << "\033[31m\n";
+    cout << "| ";
+    cout << "\033[0m";
+    cout << "Vita = " << vita;
+    cout << "\033[31m";
+    cout << "  |";
+    cout << "\033[0m"; 
+    cout << "\033[90m";
+    cout << " | ";
+    cout << "\033[0m"; 
+    cout << "Scudo = True";
+    cout << "\033[90m";
+    cout << " | ";
+    cout << "\033[0m\n"; 
+    cout << "\033[31m";
+    cout << "└───────────┘";
+    cout << "\033[0m";
+    cout << "\033[90m";
+    cout << " └──────────────┘";
+    cout << "\033[0m\n";
+}
+void menuVitaPiuTotem(){
+    cout << "\033[31m";
+    cout << "┌───────────┐";
+    cout << "\033[0m";
+    cout << "\033[33m";
+    cout << " ┌──────────────┐";
+    cout << "\033[0m";
+    cout << "\033[31m\n";
+    cout << "| ";
+    cout << "\033[0m";
+    cout << "Vita = " << vita;
+    cout << "\033[31m";
+    cout << "  |";
+    cout << "\033[0m"; 
+    cout << "\033[33m";
+    cout << " | ";
+    cout << "\033[0m"; 
+    cout << "Totem = True";
+    cout << "\033[33m";
+    cout << " | ";
+    cout << "\033[0m\n"; 
+    cout << "\033[31m";
+    cout << "└───────────┘";
+    cout << "\033[0m";
+    cout << "\033[33m";
+    cout << " └──────────────┘";
+    cout << "\033[0m\n";
+}
+void menuVitaConTutto(){
+    cout << "\033[31m";
+    cout << "┌───────────┐";
+    cout << "\033[0m";
+    cout << "\033[33m";
+    cout << " ┌──────────────┐";
+    cout << "\033[0m";
+    cout << "\033[90m";
+    cout << " ┌──────────────┐";
+    cout << "\033[0m";
+    cout << "\033[31m\n";
+    cout << "| ";
+    cout << "\033[0m";
+    cout << "Vita = " << vita;
+    cout << "\033[31m";
+    cout << "  |";
+    cout << "\033[0m"; 
+    cout << "\033[33m";
+    cout << " | ";
+    cout << "\033[0m"; 
+    cout << "Totem = True";
+    cout << "\033[33m";
+    cout << " |";
+    cout << "\033[0m"; 
+    cout << "\033[90m";
+    cout << " | ";
+    cout << "\033[0m"; 
+    cout << "Scudo = True";
+    cout << "\033[90m";
+    cout << " | ";
+    cout << "\033[0m\n"; 
+    cout << "\033[31m";
+    cout << "└───────────┘";
+    cout << "\033[0m";
+    cout << "\033[33m";
+    cout << " └──────────────┘";
+    cout << "\033[0m";
+    cout << "\033[90m";
+    cout << " └──────────────┘";
+    cout << "\033[0m\n";
+}
+void scegliMenu(){
+    if (hasTotem == true && hasShield == true) {
+        menuVitaConTutto();
+    } else if (hasTotem == true) {
+        menuVitaPiuTotem();
+    } else if (hasShield == true) {
+        menuVitaPiuScudo();
+    } else {
+        menuVita();
+    }
+}
+//funzioni per quando vai avanti. RANDOM
 void niente(){
     cout << "Non hai trovato niente";
 }
-
-void applyDamage(double damage) {
-    if (hasShield) {
-        int chance = rand() % 2; 
-        if (chance == 0) {
-            cout << "\nIl tuo scudo blocca completamente il danno!" << endl;
-            hasShield = false; 
-            Invio();
-            return; 
-        } else {
-            cout << "\nLo scudo non riesce a bloccare il danno..." << endl;
-            hasShield = false; 
-        }
-    }
-
-    
-    vita -= damage;
-
-    
-    if (vita <= 0.01 && hasTotem) {
-        clearScreen();
-        menuVita();
-        displayTotem();
-        linea();
-        cout << "\nIl tuo totem si illumina! Ti salva dalla morte..." << endl;
-        vita = vitaMax; 
-        hasTotem = false;
-        return;
-    }
-
-    
-    if (vita <= 0.01) {
-        clearScreen();
-        displaySkull();
-        cout << "\nGame Over! Hai perso tutta la tua vita..." << endl;
-        Invio();
-        exit(0);
-    }
-}
-
 void apriChest() {
     clearScreen();
-    menuVita();
+    scegliMenu();
     displayChest();
     linea();
     cout << "Hai trovato un forziere misterioso..." << endl;
@@ -314,7 +451,57 @@ void apriChest() {
     linea();
     Invio();
 }
- 
+void combattimento(int livello, int &nemiciUccisi, string mobs[3]) {
+    if (difficulty == "Facile"){
+        combattimentoFacile(livello, nemiciUccisi, mobs);
+    }
+    else if (difficulty == "Normale"){
+        combattimentoNormale(livello, nemiciUccisi, mobs);
+    }
+    else if (difficulty == "Difficile"){
+        combattimentoDifficile(livello, nemiciUccisi, mobs);
+    }
+}
+//Funzione danno
+void applyDamage(double damage) {
+    if (hasShield) {
+        int chance = rand() % 2; 
+        if (chance == 0) {
+            cout << "\nIl tuo scudo blocca completamente il danno!" << endl;
+            hasShield = false; 
+            Invio();
+            return; 
+        } else {
+            cout << "\nLo scudo non riesce a bloccare il danno..." << endl;
+            hasShield = false; 
+        }
+    }
+
+    
+    vita -= damage;
+
+    
+    if (vita <= 0.01 && hasTotem) {
+        clearScreen();
+        scegliMenu();
+        displayTotem();
+        linea();
+        cout << "\nIl tuo totem si illumina! Ti salva dalla morte..." << endl;
+        vita = vitaMax; 
+        hasTotem = false;
+        return;
+    }
+
+    
+    if (vita <= 0.01) {
+        clearScreen();
+        displaySkull();
+        cout << "\nGame Over! Hai perso tutta la tua vita..." << endl;
+        Invio();
+        exit(0);
+    }
+}
+//funzioni combattimento con difficolta "Facile/Normale/Difficile"
 void combattimentoFacile(int livello, int &nemiciUccisi, string mobs[3]){
     clearScreen();
     string scelta;
@@ -325,7 +512,7 @@ void combattimentoFacile(int livello, int &nemiciUccisi, string mobs[3]){
     return; 
 }
     else{
-        menuVita();
+        scegliMenu();
         displayMob(mob);
         linea();
         cout << "Hai incontrato : " << mob << "!" << endl;
@@ -349,7 +536,6 @@ void combattimentoFacile(int livello, int &nemiciUccisi, string mobs[3]){
     }
     Invio();
 }
-
 void combattimentoDifficile(int livello, int &nemiciUccisi, string mobs[3]){
     clearScreen();
     string scelta;
@@ -360,7 +546,7 @@ void combattimentoDifficile(int livello, int &nemiciUccisi, string mobs[3]){
     return; // finisce il combattimento
 }
     else{
-        menuVita();
+        scegliMenu();
         displayMob(mob);
         linea();
         cout << "Hai incontrato : " << mob << "!" << endl;
@@ -384,7 +570,6 @@ void combattimentoDifficile(int livello, int &nemiciUccisi, string mobs[3]){
     }
     Invio();
 }
-
 void combattimentoNormale(int livello, int &nemiciUccisi, string mobs[3]){
     clearScreen();
     string scelta;
@@ -395,7 +580,7 @@ void combattimentoNormale(int livello, int &nemiciUccisi, string mobs[3]){
     return; // finisce il combattimento
 }
     else{
-        menuVita();
+        scegliMenu();
         displayMob(mob);
         linea();
         cout << "Hai incontrato : " << mob << "!" << endl;
@@ -419,19 +604,360 @@ void combattimentoNormale(int livello, int &nemiciUccisi, string mobs[3]){
     }
     Invio();
 }
+// Combattimento Tutti i boss 
+void combattimentoGoblinKing() {
+    double toglivita = vita/5.0;
+    char scelta;
 
-void combattimento(int livello, int &nemiciUccisi, string mobs[3]) {
-    if (difficulty == "Facile"){
-        combattimentoFacile(livello, nemiciUccisi, mobs);
+    clearScreen();
+    scegliMenu();
+    displayGoblinKing();
+    linea();
+    cout << "1. Perchè in C++ gli array partono dall'indice 0?" << endl;
+    cout << "A. Per comodità dei programmatori" << endl;
+    cout << "B. Perché l’indice rappresenta uno spostamento in memoria" << endl;
+    cout << "C. Per motivi grafici" << endl;
+    cout << "D. Per risparmiare spazio" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'B') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
     }
-    else if (difficulty == "Normale"){
-        combattimentoNormale(livello, nemiciUccisi, mobs);
+
+    Invio();
+
+
+    clearScreen();
+    scegliMenu();
+    displayGoblinKing();
+    linea();
+    cout << "2. Quale di questi è un uso comune degli array nei videogiochi?" << endl;
+    cout << "A. Stampare testo" << endl;
+    cout << "B. Memorizzare nemici, oggetti o livelli" << endl;
+    cout << "C. Creare finestre" << endl;
+    cout << "D. Gestire il mouse" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'B') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
     }
-    else if (difficulty == "Difficile"){
-        combattimentoDifficile(livello, nemiciUccisi, mobs);
+
+    Invio();
+
+    
+    clearScreen();
+    scegliMenu();
+    displayGoblinKing();
+    linea();
+    cout << "3. Da quanto tempo esistono gli array in informatica?" << endl;
+    cout << "A. Dagli anni 2000" << endl;
+    cout << "B. Dagli anni 90" << endl;
+    cout << "C. Dagli anni ’50" << endl;
+    cout << "D. Dal 2010" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'C') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita); 
     }
+
+    Invio();
+
+
+    
+    clearScreen();
+    scegliMenu();
+    displayGoblinKing();
+    linea();
+    cout << "4. Perché una variabile si chiama così?" << endl;
+    cout << "A. Perché è casuale" << endl;
+    cout << "B. Perché è costante" << endl;
+    cout << "C. Perché il suo valore può cambiare" << endl;
+    cout << "D. Perché è numerica" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'C') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);  
+    }
+
+    Invio();
+
+    
+    clearScreen();
+    scegliMenu();
+    displayGoblinKing();
+    linea();
+    cout << "5. Quale struttura dati è basata direttamente sugli array?" << endl;
+    cout << "A. Funzioni" << endl;
+    cout << "B. Classi" << endl;
+    cout << "C. Vettori e matrici" << endl;
+    cout << "D. Cicli" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'C') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
+    }
+    
+    Invio();
+
+    // Final screen after all questions
+    clearScreen();
+    scegliMenu();
+    linea();
+    cout << "Hai completato il livello 1, ti stai avvicinando al cuore dell'isola.." << endl;
+
 }
+void combattimentoVampiro() {
+    double toglivita = vita / 5.0;
+    char scelta;
 
+    clearScreen();
+    scegliMenu();
+    displayVampireBoss();
+    linea();
+    cout << "1. Perché il C++ NON controlla automaticamente i limiti degli array?" << endl;
+    cout << "A. Per semplicità" << endl;
+    cout << "B. Per errore" << endl;
+    cout << "C. Per essere più veloce" << endl;
+    cout << "D. Per sicurezza" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'C') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
+    }
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    displayVampireBoss();
+    linea();
+    cout << "2. D. Per sicurezza" << endl;
+    cout << "A. È più veloce" << endl;
+    cout << "B. Non modifica la variabile originale" << endl;
+    cout << "C. Usa meno memoria" << endl;
+    cout << "D. Evita i bug" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'B') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
+    }
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    displayVampireBoss();
+    linea();
+    cout << "3. In quale situazione è meglio usare il passaggio per riferimento?" << endl;
+    cout << "A. Quando non serve modificare dati" << endl;
+    cout << "B. Quando si vogliono modificare variabili esterne" << endl;
+    cout << "C. Solo con int" << endl;
+    cout << "D. Solo con stringhe" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'B') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita); 
+    }
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    displayVampireBoss();
+    linea();
+    cout << "4. Perché const è molto usato nelle librerie professionali?" << endl;
+    cout << "A. Rende il codice più corto" << endl;
+    cout << "B. Rende il programma più bello" << endl;
+    cout << "C. Previene modifiche accidentali" << endl;
+    cout << "D. Aumenta la memoria" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'C') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita); 
+    }
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    displayVampireBoss();
+    linea();
+    cout << "5. Quale problema comune causa errori negli array?" << endl;
+    cout << "A. Troppi commenti" << endl;
+    cout << "B. Uso di cout" << endl;
+    cout << "C. Indice fuori dai limiti" << endl;
+    cout << "D. Uso delle funzioni" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'C') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita); 
+    }
+
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    linea();
+    cout << "Hai completato il livello 2! La tua avventura continua..." << endl;
+}
+void combattimentoDrago(){
+    double toglivita = vita / 5.0;
+    char scelta;
+
+    clearScreen();
+    scegliMenu();
+    displayDragon();
+    linea();
+    cout << "1. Perché il passaggio per riferimento migliora le prestazioni?" << endl;
+    cout << "A. Usa più CPU" << endl;
+    cout << "B. Evita la copia di grandi dati" << endl;
+    cout << "C. Duplica la memoria" << endl;
+    cout << "D. Evita i cicli" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'B') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita); 
+    }
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    displayDragon();
+    linea();
+    cout << "2. Qual è uno dei principali rischi del C++ rispetto ad altri linguaggi moderni??" << endl;
+    cout << "A. È troppo lento" << endl;
+    cout << "B. Gestione manuale della memoria" << endl;
+    cout << "C. Non usa funzioni" << endl;
+    cout << "D. Non usa classi" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'B') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
+    }
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    displayDragon();
+    linea();
+    cout << "3. Perché molti bug storici sono causati dagli array?" << endl;
+    cout << "A. Sono nuovi" << endl;
+    cout << "B. Non hanno controllo automatico dei limiti" << endl;
+    cout << "C. Usano stringhe" << endl;
+    cout << "D. Sono lenti" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'B') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
+    }
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    displayDragon();
+    linea();
+    cout << "4. In quali ambiti è ancora molto usato il C++ oggi?" << endl;
+    cout << "A. Solo scuola" << endl;
+    cout << "B. Per la creazione di siti Web" << endl;
+    cout << "C. Videogiochi, sistemi operativi, motori grafici" << endl;
+    cout << "D. Social network" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'C') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
+    }
+
+    
+    Invio();
+
+
+    clearScreen();
+    scegliMenu();
+    displayDragon();
+    linea();
+    cout << "5. Perché il C++ viene ancora insegnato a scuola nonostante sia complesso?" << endl;
+    cout << "A. Perché è facile" << endl;
+    cout << "B. Perché è nuovo" << endl;
+    cout << "C. Per comprendere la memoria " << endl;
+    cout << "D. Perché non esistono alternative" << endl;
+    Input();
+    cin >> scelta;
+
+    if (scelta == 'C') {
+        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
+    } else {
+        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
+        applyDamage(toglivita);
+    }
+
+    Invio();
+
+    clearScreen();
+    scegliMenu();
+    linea();
+    cout << "Hai completato il livello 3! Il boss ti sta aspettando..." << endl;
+}
+// Carica e salva impostazioni
 void loadSettings() {
     ifstream in("impostazioni.txt"); //legge
     if (in) {
@@ -455,7 +981,6 @@ void loadSettings() {
         in.close();
     }
 }
-
 void saveSettings() {
     ofstream out("impostazioni.txt"); //scrive
     out << "playerName = " << playerName << "\n";
@@ -469,443 +994,13 @@ void saveSettings() {
     out << "attaccare = " << attaccare << "\n";
     out.close();
 }
-
-void printTitle() {
-    cout << "\033[35m";
-    cout << "┌──────────────────────────────────────────────────────────────────────────────────────────┐\n";
-    cout << "│                                                                                          │\n";
-    cout << "│  █████        ██    █████                  ████                                          │\n";
-    cout << "│ ░░███        ███   ░░███                  ░░███                                          │\n";
-    cout << "│  ░███       ░░░     ░███   █████   ██████  ░███   ██████                                 │\n";
-    cout << "│  ░███               ░███  ███░░   ███░░███ ░███  ░░░░░███                                │\n";
-    cout << "│  ░███               ░███ ░░█████ ░███ ░███ ░███   ███████                                │\n";
-    cout << "│  ░███      █        ░███  ░░░░███░███ ░███ ░███  ███░░███                                │\n";
-    cout << "│  ███████████        █████ ██████ ░░██████  █████░░████████                               │\n";
-    cout << "│ ░░░░░░░░░░░        ░░░░░ ░░░░░░   ░░░░░░  ░░░░░  ░░░░░░░░                                │\n";
-    cout << "│                                                                                          │\n";
-    cout << "│      █████          ████  ████                  ██████               █████               │\n";
-    cout << "│     ░░███          ░░███ ░░███                 ███░░███             ░░███                │\n";
-    cout << "│   ███████   ██████  ░███  ░███   ██████       ░███ ░░░   ██████   ███████   ██████       │\n";
-    cout << "│  ███░░███  ███░░███ ░███  ░███  ░░░░░███     ███████    ███░░███ ███░░███  ███░░███      │\n";
-    cout << "│ ░███ ░███ ░███████  ░███  ░███   ███████    ░░░███░    ░███████ ░███ ░███ ░███████       │\n";
-    cout << "│ ░███ ░███ ░███░░░   ░███  ░███  ███░░███      ░███     ░███░░░  ░███ ░███ ░███░░░        │\n";
-    cout << "│ ░░████████░░██████  █████ █████░░████████     █████    ░░██████ ░░████████░░██████       │\n";
-    cout << "│  ░░░░░░░░  ░░░░░░  ░░░░░ ░░░░░  ░░░░░░░░     ░░░░░      ░░░░░░   ░░░░░░░░  ░░░░░░        │\n";
-    cout << "│                                                                                          │\n";
-    cout << "└──────────────────────────────────────────────────────────────────────────────────────────┘\n";
-    cout << "\033[0m\n";
-}
-
-void printSettingsTitle() {
-    cout << "\033[35m";
-    cout << "┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n";
-    cout << "│ █████                                             █████                          ███                       ███ │\n";
-    cout << "│░░███                                             ░░███                          ░░░                       ░░░  │\n";
-    cout << "│ ░███  █████████████   ████████   ██████   █████  ███████    ██████    █████████ ████   ██████  ████████   ████ │\n";
-    cout << "│ ░███ ░░███░░███░░███ ░░███░░███ ███░░███ ███░░  ░░░███░    ░░░░░███  ░█░░░░███ ░░███  ███░░███░░███░░███ ░░███ │\n";
-    cout << "│ ░███  ░███ ░███ ░███  ░███ ░███░███ ░███░░█████   ░███      ███████  ░   ███░   ░███ ░███ ░███ ░███ ░███  ░███ │\n";
-    cout << "│ ░███  ░███ ░███ ░███  ░███ ░███░███ ░███ ░░░░███  ░███ ███ ███░░███    ███░   █ ░███ ░███ ░███ ░███ ░███  ░███ │\n";
-    cout << "│ █████ █████░███ █████ ░███████ ░░██████  ██████   ░░█████ ░░████████  █████████ █████░░██████  ████ █████ █████│\n";
-    cout << "│░░░░░ ░░░░░ ░░░ ░░░░░  ░███░░░   ░░░░░░  ░░░░░░     ░░░░░   ░░░░░░░░  ░░░░░░░░░ ░░░░░  ░░░░░░  ░░░░ ░░░░░ ░░░░░ │\n";
-    cout << "│                       ░███                                                                                     │\n";
-    cout << "│                       █████                                                                                    │\n";
-    cout << "│                      ░░░░░                                                                                     │\n";
-    cout << "└────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n";
-    cout << "\033[0m\n";
-}
-
-void printCreditsTitle() {
-    cout << "\033[35m";
-    cout << "┌────────────────────────────────────────────────────────────┐\n";
-    cout << "│                                 █████  ███   █████     ███ │\n";
-    cout << "│                                ░░███  ░░░   ░░███     ░░░  │\n";
-    cout << "│  ██████  ████████   ██████   ███████  ████  ███████   ████ │\n";
-    cout << "│ ███░░███░░███░░███ ███░░███ ███░░███ ░░███ ░░░███░   ░░███ │\n";
-    cout << "│░███ ░░░  ░███ ░░░ ░███████ ░███ ░███  ░███   ░███     ░███ │\n";
-    cout << "│░███  ███ ░███     ░███░░░  ░███ ░███  ░███   ░███ ███ ░███ │\n";
-    cout << "│░░██████  █████    ░░██████ ░░████████ █████  ░░█████  █████│\n";
-    cout << "│ ░░░░░░  ░░░░░      ░░░░░░   ░░░░░░░░ ░░░░░    ░░░░░  ░░░░░ │\n";
-    cout << "└────────────────────────────────────────────────────────────┘\n";
-    cout << "\033[0m\n";
-}
-
-void printIntroductionTitle(){
-    cout << "\033[35m";
-    cout << "┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n";
-    cout << "│  ███              █████                           █████                        ███                              │\n";
-    cout << "│ ░░░              ░░███                           ░░███                        ░░░                               │\n";
-    cout << "│ ████  ████████   ███████   ████████   ██████   ███████  █████ ████  █████████ ████   ██████  ████████    ██████ │\n";
-    cout << "│░░███ ░░███░░███ ░░░███░   ░░███░░███ ███░░███ ███░░███ ░░███ ░███  ░█░░░░███ ░░███  ███░░███░░███░░███  ███░░███│\n";
-    cout << "│ ░███  ░███ ░███   ░███     ░███ ░░░ ░███ ░███░███ ░███  ░███ ░███  ░   ███░   ░███ ░███ ░███ ░███ ░███ ░███████ │\n";
-    cout << "│ ░███  ░███ ░███   ░███ ███ ░███     ░███ ░███░███ ░███  ░███ ░███    ███░   █ ░███ ░███ ░███ ░███ ░███ ░███░░░  │\n";
-    cout << "│ █████ ████ █████  ░░█████  █████    ░░██████ ░░████████ ░░████████  █████████ █████░░██████  ████ █████░░██████ │\n";
-    cout << "│░░░░░ ░░░░ ░░░░░    ░░░░░  ░░░░░      ░░░░░░   ░░░░░░░░   ░░░░░░░░  ░░░░░░░░░ ░░░░░  ░░░░░░  ░░░░ ░░░░░  ░░░░░░  │\n";
-    cout << "└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n";
-    cout << "\033[0m\n";
-}
-
+//funzioni per menu inizialle
 void showCredits() {
     clearScreen();
     printCreditsTitle();
     cout << "Questi sono i crediti";
 
 }
-
-void combattimentoGoblinKing() {
-    double toglivita = vita/5.0;
-    char scelta;
-
-    clearScreen();
-    menuVita();
-    displayGoblinKing();
-    linea();
-    cout << "1. Perchè in C++ gli array partono dall'indice 0?" << endl;
-    cout << "A. Per comodità dei programmatori" << endl;
-    cout << "B. Perché l’indice rappresenta uno spostamento in memoria" << endl;
-    cout << "C. Per motivi grafici" << endl;
-    cout << "D. Per risparmiare spazio" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'B') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-
-    Invio();
-
-
-    clearScreen();
-    menuVita();
-    displayGoblinKing();
-    linea();
-    cout << "2. Quale di questi è un uso comune degli array nei videogiochi?" << endl;
-    cout << "A. Stampare testo" << endl;
-    cout << "B. Memorizzare nemici, oggetti o livelli" << endl;
-    cout << "C. Creare finestre" << endl;
-    cout << "D. Gestire il mouse" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'B') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-
-    Invio();
-
-    
-    clearScreen();
-    menuVita();
-    displayGoblinKing();
-    linea();
-    cout << "3. Da quanto tempo esistono gli array in informatica?" << endl;
-    cout << "A. Dagli anni 2000" << endl;
-    cout << "B. Dagli anni 90" << endl;
-    cout << "C. Dagli anni ’50" << endl;
-    cout << "D. Dal 2010" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'C') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita); 
-    }
-
-    Invio();
-
-
-    
-    clearScreen();
-    menuVita();
-    displayGoblinKing();
-    linea();
-    cout << "4. Perché una variabile si chiama così?" << endl;
-    cout << "A. Perché è casuale" << endl;
-    cout << "B. Perché è costante" << endl;
-    cout << "C. Perché il suo valore può cambiare" << endl;
-    cout << "D. Perché è numerica" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'C') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);  
-    }
-
-    Invio();
-
-    
-    clearScreen();
-    menuVita();
-    displayGoblinKing();
-    linea();
-    cout << "5. Quale struttura dati è basata direttamente sugli array?" << endl;
-    cout << "A. Funzioni" << endl;
-    cout << "B. Classi" << endl;
-    cout << "C. Vettori e matrici" << endl;
-    cout << "D. Cicli" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'C') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-    
-    Invio();
-
-    // Final screen after all questions
-    clearScreen();
-    menuVita();
-    linea();
-    cout << "Hai completato il livello 1, ti stai avvicinando al cuore dell'isola.." << endl;
-
-}
-
-void combattimentoVampiro() {
-    double toglivita = vita / 5.0;
-    char scelta;
-
-    clearScreen();
-    menuVita();
-    displayVampireBoss();
-    linea();
-    cout << "1. Perché il C++ NON controlla automaticamente i limiti degli array?" << endl;
-    cout << "A. Per semplicità" << endl;
-    cout << "B. Per errore" << endl;
-    cout << "C. Per essere più veloce" << endl;
-    cout << "D. Per sicurezza" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'C') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    displayVampireBoss();
-    linea();
-    cout << "2. D. Per sicurezza" << endl;
-    cout << "A. È più veloce" << endl;
-    cout << "B. Non modifica la variabile originale" << endl;
-    cout << "C. Usa meno memoria" << endl;
-    cout << "D. Evita i bug" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'B') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    displayVampireBoss();
-    linea();
-    cout << "3. In quale situazione è meglio usare il passaggio per riferimento?" << endl;
-    cout << "A. Quando non serve modificare dati" << endl;
-    cout << "B. Quando si vogliono modificare variabili esterne" << endl;
-    cout << "C. Solo con int" << endl;
-    cout << "D. Solo con stringhe" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'B') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita); 
-    }
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    displayVampireBoss();
-    linea();
-    cout << "4. Perché const è molto usato nelle librerie professionali?" << endl;
-    cout << "A. Rende il codice più corto" << endl;
-    cout << "B. Rende il programma più bello" << endl;
-    cout << "C. Previene modifiche accidentali" << endl;
-    cout << "D. Aumenta la memoria" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'C') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita); 
-    }
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    displayVampireBoss();
-    linea();
-    cout << "5. Quale problema comune causa errori negli array?" << endl;
-    cout << "A. Troppi commenti" << endl;
-    cout << "B. Uso di cout" << endl;
-    cout << "C. Indice fuori dai limiti" << endl;
-    cout << "D. Uso delle funzioni" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'C') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita); 
-    }
-
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    linea();
-    cout << "Hai completato il livello 2! La tua avventura continua..." << endl;
-}
-
-void combattimentoDrago(){
-    double toglivita = vita / 5.0;
-    char scelta;
-
-    clearScreen();
-    menuVita();
-    displayDragon();
-    linea();
-    cout << "1. Perché il passaggio per riferimento migliora le prestazioni?" << endl;
-    cout << "A. Usa più CPU" << endl;
-    cout << "B. Evita la copia di grandi dati" << endl;
-    cout << "C. Duplica la memoria" << endl;
-    cout << "D. Evita i cicli" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'B') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita); 
-    }
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    displayDragon();
-    linea();
-    cout << "2. Qual è uno dei principali rischi del C++ rispetto ad altri linguaggi moderni??" << endl;
-    cout << "A. È troppo lento" << endl;
-    cout << "B. Gestione manuale della memoria" << endl;
-    cout << "C. Non usa funzioni" << endl;
-    cout << "D. Non usa classi" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'B') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    displayDragon();
-    linea();
-    cout << "3. Perché molti bug storici sono causati dagli array?" << endl;
-    cout << "A. Sono nuovi" << endl;
-    cout << "B. Non hanno controllo automatico dei limiti" << endl;
-    cout << "C. Usano stringhe" << endl;
-    cout << "D. Sono lenti" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'B') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    displayDragon();
-    linea();
-    cout << "4. In quali ambiti è ancora molto usato il C++ oggi?" << endl;
-    cout << "A. Solo scuola" << endl;
-    cout << "B. Per la creazione di siti Web" << endl;
-    cout << "C. Videogiochi, sistemi operativi, motori grafici" << endl;
-    cout << "D. Social network" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'C') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-
-    
-    Invio();
-
-
-    clearScreen();
-    menuVita();
-    displayDragon();
-    linea();
-    cout << "5. Perché il C++ viene ancora insegnato a scuola nonostante sia complesso?" << endl;
-    cout << "A. Perché è facile" << endl;
-    cout << "B. Perché è nuovo" << endl;
-    cout << "C. Per comprendere la memoria " << endl;
-    cout << "D. Perché non esistono alternative" << endl;
-    Input();
-    cin >> scelta;
-
-    if (scelta == 'C') {
-        cout << "Hai risposto correttamente..\n Che fortuna che hai avuto.. non hai perso vita." << endl;
-    } else {
-        cout << "Hai risposto male... hai perso 1/5 della tua vita.." << endl;
-        applyDamage(toglivita);
-    }
-
-    Invio();
-
-    clearScreen();
-    menuVita();
-    linea();
-    cout << "Hai completato il livello 3! Il boss ti sta aspettando..." << endl;
-}
-
 void showSettings() {
     while(true) {
 
@@ -982,9 +1077,8 @@ void showSettings() {
 
     }  
 }
-
+// Gioco
 void introduzioneGioco(){
-
     while (true) {
     clearScreen();
     printIntroductionTitle();
@@ -1049,17 +1143,6 @@ void introduzioneGioco(){
     break;
     }
     }
-
-
-
-/*
-
-void quellochevde(){
-    string adesso =     
-}
-
-*/
-
 void livelloUno() {
     int contaAvanti = 0;
     const int NORMALE = 0;
@@ -1074,7 +1157,7 @@ void livelloUno() {
             combattimentoGoblinKing();
         }
         clearScreen();
-        menuVita();
+        scegliMenu();
         displayIsola();
         linea();
 
@@ -1085,7 +1168,7 @@ void livelloUno() {
 
             if (choice == sinistra) {
                 clearScreen();
-                menuVita();
+                scegliMenu();
                 displaySea();
                 linea();
                 cout << "Stai guardando il mare, l'acqua è cristallina e si sente il suono delle onde che si infrangono sulla riva.\n";
@@ -1093,7 +1176,7 @@ void livelloUno() {
             }
             else if (choice == destra) {
                 clearScreen();
-                menuVita();
+                scegliMenu();
                 displayForest();
                 linea();
                 cout << "Stai guardando la foresta fitta e oscura." << endl;
@@ -1101,7 +1184,7 @@ void livelloUno() {
             }
             else if (choice == infront) {
                 clearScreen();
-                menuVita();
+                scegliMenu();
                 displayTrail();
                 linea();
                 cout << "Avanzi lungo il sentiero deserto." << endl;
@@ -1116,14 +1199,14 @@ void livelloUno() {
         else if (stato == MARE) {  // stato quando sta guardando il mare ovvero sinistra
             if (choice == infront) {
                 clearScreen();
-                menuVita();
+                scegliMenu();
                 displaySea();
                 linea();
                 cout << "L'acqua è troppo profonda, è pericoloso andare avanti." << endl;
             }
             else if (choice == destra || choice == sinistra) {
                 clearScreen();
-                menuVita();
+                scegliMenu();
                 displayTrail();
                 linea();
                 cout << "Sei andato fuori strada, devi tornare indietro." << endl;
@@ -1138,14 +1221,14 @@ void livelloUno() {
         else if (stato == FORESTA) {   // stato quando sta guardando la foresta ovvero destra
             if (choice == infront) {
                 clearScreen();
-                menuVita();
+                scegliMenu();
                 displayForest();
                 linea();
                 cout << "La foresta è fitta e pericolosa, non sai cosa può nascondersi." << endl;
             }
             else if (choice == destra || choice == sinistra) {
                 clearScreen();
-                menuVita();
+                scegliMenu();
                 displayTrail();
                 linea();
                 cout << "Sei andato fuori strada, devi tornare indietro." << endl;
@@ -1161,8 +1244,6 @@ void livelloUno() {
     } while (true);
 
 }
-
-
 int main() {
     loadSettings();
     #if defined(_WIN32) || defined(_WIN64)
