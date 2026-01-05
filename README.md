@@ -1,8 +1,18 @@
 # l'isola-della-fede
-School project
+Cose? Un gioco interactive fiction. 
+Basato su un ragazzo rapito e messo su una isola a sopravvivere.
 
-Finito:
+### Storia :
+Sei nella tua camera, con lo sguardo fisso sullo schermo mentre guardi l’ultimo episodio di Twisted Metal/The Witcher. La stanza è illuminata dalla luce della TV e intorno c’è silenzio. All’improvviso senti un forte botto provenire fuori dalla finestra. Ti fermi un istante, pensando che possa essere un tuono o un rumore lontano, cerchi di capirne l’origine.
+Pochi secondi dopo la finestra si frantuma con un rumore secco. I vetri esplodono nella stanza e quattro ladri irrompono all’interno muovendosi velocemente.
+Provi a reagire, ma uno di loro ti raggiunge e ti stordisce. I suoni si confondono e perdi conoscenza.
 
-Menu iniziale, Impostazioni. (Non ancora aggiunto tutte le opzioni che si possono modificare)
-27/12/2025
-Abbiamo riscritto il codice usando le librerie studiate più Windows.h perchè altrimenti non saremmo riusciti a mettere il titolo ASCII con i colori.
+Quando riapri gli occhi, ti ritrovi su un’isola insieme ai ladri, legato e confuso. In qualche modo riesci a liberarti e a scappare, allontanandoti da loro senza fare rumore. Intorno a te c’è un’isola: selvaggia, sconosciuta e silenziosa. I ladri potrebbero trovarti da un momento all’altro, ma il pensiero più urgente è capire come scappare dall’isola.
+
+### Contenuto del gioco:
+- Impostazioni
+- immagini e testo asciii
+- Funziona vita, esperienza e danno.
+- Funzione Combattimento per nemici e boss con varie difficolta (Facile/Normale/Difficile)
+- Storia semplice ma interessante
+  
