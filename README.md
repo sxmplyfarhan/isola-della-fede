@@ -29,6 +29,19 @@ Windows: [Premi Qua Se Sei Su Windows!](https://github.com/sxmplyfarhan/isola-de
 Macos :  [Premi Qua Se Sei Su MacOs!](https://github.com/sxmplyfarhan/isola-della-fede/raw/main/isolaDellaFede_MACOS.zip)
 
 Linux : 
+``` bash 
+
+
+
+# Go in the cloned repository
+cd Clip-Command
+
+# And now you can verify is the installation script has the perms it needs.
+chmod +x install.sh
+
+# And than execute the script.!
+./install.sh
+```
 
 
   
