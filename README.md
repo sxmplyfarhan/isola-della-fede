@@ -30,17 +30,17 @@ Macos :  [Premi Qua Se Sei Su MacOs!](https://github.com/sxmplyfarhan/isola-dell
 
 Linux : 
 ``` bash 
+# git clona la repo:
+git clone https://github.com/sxmplyfarhan/isola-della-fede.git
 
+# Vai nella cartella clonata
+cd isola-della-fede
 
+# Compila il fila main.cpp 
+g++ main.cpp -o la_isola
 
-# Go in the cloned repository
-cd Clip-Command
-
-# And now you can verify is the installation script has the perms it needs.
-chmod +x install.sh
-
-# And than execute the script.!
-./install.sh
+# e poi esegui il gioco ^^
+./la_isola
 ```
 
 
