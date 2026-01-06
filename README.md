@@ -25,6 +25,7 @@ Quando riapri gli occhi, ti ritrovi su un’isola insieme ai ladri, legato e con
 ## Come scaricare e provare il gioco:
 
 Windows : 
+[Click here to install](https://github.com/USERNAME/REPO/releases/download/v1.0/game.zip)
 
 Macos :
 
