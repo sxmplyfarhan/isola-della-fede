@@ -5,7 +5,7 @@ Basato su un ragazzo rapito e messo su una isola a sopravvivere.
 
 ---
 ## Versione limitata per il open day:
-Open Day: [Premi Qua Se Devi Usare Per il Open Day! !](https://github.com/sxmplyfarhan/isola-della-fede/raw/main/OpenDay.zip)
+Open Day: [Premi Qua Se Devi Usare Per il Open Day!](https://github.com/sxmplyfarhan/isola-della-fede/raw/main/OpenDay.zip)
 
 ---
 ### Storia :
