@@ -4,10 +4,8 @@ Un gioco interactive fiction.
 Basato su un ragazzo rapito e messo su una isola a sopravvivere.
 
 ---
-## Obbiettivi :
-Aggiungere un sistema di linguaggio, (Italian e inglese 100% forse anche altre lingue.)
-Completare tutto il sistema di combattimento. (Ultimo obbiettivo, Inspirazione da undertale.)
-Nuova interface, Storia più lunga e più cose. (Posizionamento diverso, più colori.)
+## Versione limitata per il open day:
+Open Day: [Premi Qua Se Devi Usare Per il Open Day! !](https://github.com/sxmplyfarhan/isola-della-fede/raw/main/OpenDay.zip)
 
 ---
 ### Storia :
@@ -27,6 +25,13 @@ Scarica Tutta la storia qua: [Premi Qua Per Scaricare Tutta La Storia!](https://
 - Funziona vita, esperienza e danno.
 - Funzione Combattimento per nemici e boss con varie difficolta (Facile/Normale/Difficile)
 - Storia semplice ma interessante
+
+---
+
+## Obbiettivi :
+Aggiungere un sistema di linguaggio, (Italian e inglese 100% forse anche altre lingue.)
+Completare tutto il sistema di combattimento. (Ultimo obbiettivo, Inspirazione da undertale.)
+Nuova interface, Storia più lunga e più cose. (Posizionamento diverso, più colori.)
 
 ---
 
